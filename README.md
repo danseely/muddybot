@@ -1,37 +1,52 @@
-# Symfony 5 docker containers
+# MuddyBot
 
-A Proof-of-concept of a running Symfony 5 application inside containers
+A simple web page to determine if it will be muddy 3 days from now.
+
+## Get up & running
 
 ```
-git clone git@gitlab.com:martinpham/symfony-5-docker.git
+git clone https://github.com/danseely/muddybot.git
 
-cd symfony-5-docker
-
-cd docker
+cd muddybot/docker
 
 docker-compose up
 ```
 
 ## Compose
 
-### Database (MariaDB)
-
-...
-
 ### PHP (PHP-FPM)
 
 Composer is included
 
 ```
-docker-compose run php-fpm composer 
+docker-compose run php-fpm composer install
 ```
 
-To run fixtures
+### Add API keys
+You'll need an API key for the [Dark Sky API](https://darksky.net/dev/docs) and the [Google geocoding API](https://developers.google.com/maps/documentation/geocoding/start). You can enter them at the bottom of the Symfony `.env` file like this:
 
 ```
-docker-compose run php-fpm bin/console doctrine:fixtures:load
+GOOGLE_MAPS_API_KEY=<KEY_HERE>
+DARK_SKY_API_KEY=<KEY_HERE>
 ```
 
-### Webserver (Nginx)
+## Usage
 
-...
+Visit http://localhost/weather to see if it'll be muddy 3 days from now. Currently hardcoded to Ann Arbor, MI (48104).
+
+## Run tests
+```
+docker-compose run php-fpm php bin/phpunit tests
+```
+
+# To Do
+- [ ] form for entering location
+- [ ] allow for entering either city or location
+- [ ] handle bad entry
+- [ ] style page 🙈
+- [ ] full docker wrapper
+- [ ] better handling of API keys (they're not particularly secret)
+- [ ] make the endpoint more generic, to handle other use cases
+- [ ] why so slow?
+
+[_Docker + Symfony skeleton based off the work of Martin Pham here._](https://gitlab.com/martinpham/symfony-5-docker)
