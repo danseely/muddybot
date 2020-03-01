@@ -1,4 +1,7 @@
 {
+    "dmitry-ivanov/dark-sky-api": {
+        "version": "1.1.2"
+    },
     "doctrine/annotations": {
         "version": "1.0",
         "recipe": {
@@ -90,6 +93,15 @@
     "doctrine/reflection": {
         "version": "v1.0.0"
     },
+    "guzzlehttp/guzzle": {
+        "version": "6.5.2"
+    },
+    "guzzlehttp/promises": {
+        "version": "v1.3.1"
+    },
+    "guzzlehttp/psr7": {
+        "version": "1.6.1"
+    },
     "jdorn/sql-formatter": {
         "version": "v1.2.17"
     },
@@ -114,8 +126,14 @@
     "psr/event-dispatcher": {
         "version": "1.0.0"
     },
+    "psr/http-message": {
+        "version": "1.0.1"
+    },
     "psr/log": {
         "version": "1.1.2"
+    },
+    "ralouphie/getallheaders": {
+        "version": "3.0.3"
     },
     "sensio/framework-extra-bundle": {
         "version": "5.2",
@@ -128,6 +146,9 @@
         "files": [
             "config/packages/sensio_framework_extra.yaml"
         ]
+    },
+    "symfony/browser-kit": {
+        "version": "v5.0.5"
     },
     "symfony/cache": {
         "version": "v5.0.1"
@@ -156,6 +177,9 @@
     },
     "symfony/doctrine-bridge": {
         "version": "v5.0.1"
+    },
+    "symfony/dom-crawler": {
+        "version": "v5.0.5"
     },
     "symfony/dotenv": {
         "version": "v5.0.1"
@@ -228,6 +252,21 @@
     },
     "symfony/orm-pack": {
         "version": "v1.0.7"
+    },
+    "symfony/phpunit-bridge": {
+        "version": "4.3",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "4.3",
+            "ref": "6d0e35f749d5f4bfe1f011762875275cd3f9874f"
+        },
+        "files": [
+            ".env.test",
+            "bin/phpunit",
+            "phpunit.xml.dist",
+            "tests/bootstrap.php"
+        ]
     },
     "symfony/polyfill-intl-idn": {
         "version": "v1.13.1"
