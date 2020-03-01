@@ -17,7 +17,7 @@ class WeatherController extends AbstractController
     {
         $weather = new Weather();
 
-        $forecast = $weather->getWeatherForLocation([42.279594, -83.732124]);
+        $forecast = $weather->getWeatherForLocation("48104");
 
         return $forecast;
     }

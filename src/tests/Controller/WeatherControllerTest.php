@@ -5,10 +5,8 @@ namespace App\Tests\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
-class WeatherControllerTest extends WebTestCase
-{
-    public function testShowWeatherReturns200()
-    {
+class WeatherControllerTest extends WebTestCase {
+    public function testShowWeatherReturns200() {
         $client = static::createClient();
 
         $client->request('GET', '/weather');
@@ -16,12 +14,19 @@ class WeatherControllerTest extends WebTestCase
         $this->assertEquals(200, $client->getResponse()->getStatusCode());
     }
 
-    public function testShowWeatherHasForecastKey()
-    {
+    public function testShowWeatherHasForecastKey() {
         $client = static::createClient();
 
         $client->request('GET', '/weather');
 
         $this->assertContains('forecast', $client->getResponse()->getContent());
+    }
+
+    public function testShowWeatherHasWillBeMuddyKey() {
+        $client = static::createClient();
+
+        $client->request('GET', '/weather');
+
+        $this->assertContains('muddy', $client->getResponse()->getContent());
     }
 }
