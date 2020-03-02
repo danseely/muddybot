@@ -14,12 +14,12 @@ class WeatherControllerTest extends WebTestCase {
 		$this->assertEquals(200, $client->getResponse()->getStatusCode());
 	}
 
-	public function testShowWeatherHasForecastKey() {
+	public function testShowWeatherHasZipKey() {
 		$client = static::createClient();
 
 		$client->request('GET', '/weather');
 
-		$this->assertContains('forecast', $client->getResponse()->getContent());
+		$this->assertContains('zip', $client->getResponse()->getContent());
 	}
 
 	public function testShowWeatherHasWillBeMuddyKey() {
