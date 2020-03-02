@@ -20,7 +20,7 @@ class Weather {
 
         // $forecast = (new DarkSkyApi('faee3540bda4fe77d5cf06d1615ead0d'))
         $forecast = (new DarkSkyApi($_ENV['DARK_SKY_API_KEY']))
-            ->location($location[0], $location[1])
+            ->location($location['lat'], $location['long'])
             ->timeMachine($date->format('Y-m-d'), ['daily']);
 
         // get our high temp & chance of precipitation
@@ -35,11 +35,12 @@ class Weather {
             $muddy = false;
         }
 
-        return [
-            'muddy' => $muddy
-                ? "Yep! Better grab yer boots 😉"
-                : "Nope! Grab those sandals! 😎"
-        ];
+        // craft a message, including the city name if we got one back
+        $cityMessage = $location['city'] ? " in {$location['city']}" : '';
+        $message = $muddy ? "Yep, it's gonna be muddy$cityMessage! Better grab yer boots 😉"
+        : "Nope, it shouldn’t be muddy$cityMessage! Grab those sandals! 😎";
+
+        return ['muddy' => $message];
     }
 
     // see https://www.codeofaninja.com/2014/06/google-maps-geocoding-example-php.html
@@ -61,12 +62,16 @@ class Weather {
             // get the important data
             $lat = isset($resp['results'][0]['geometry']['location']['lat']) ? $resp['results'][0]['geometry']['location']['lat'] : "";
             $long = isset($resp['results'][0]['geometry']['location']['lng']) ? $resp['results'][0]['geometry']['location']['lng'] : "";
+            $city = isset($resp['results'][0]['address_components'][1]['long_name']) ? $resp['results'][0]['address_components'][1]['long_name'] : "";
             
             // verify if data is complete
             if ($lat && $long) {
 
                 // put the data in the array
-                $data_arr = [$lat, $long];
+                $data_arr = ['lat' => $lat,
+                    'long' => $long,
+                    'city' => $city];
+
                 return $data_arr;
                 
             } else {
