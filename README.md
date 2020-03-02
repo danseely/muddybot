@@ -32,7 +32,7 @@ DARK_SKY_API_KEY=<KEY_HERE>
 
 ## Usage
 
-Visit http://localhost/weather to see if it'll be muddy 3 days from now. Currently hardcoded to Ann Arbor, MI (48104).
+Visit http://localhost/weather and enter a zip code to see if it'll be muddy there 3 days from now.
 
 ## Run tests
 ```
@@ -40,13 +40,15 @@ docker-compose run php-fpm php bin/phpunit tests
 ```
 
 # To Do
-- [ ] form for entering location
+- [x] form for entering location
+- [ ] make form async
 - [ ] allow for entering either city or location
-- [ ] handle bad entry
+- [ ] sanitize input
 - [ ] style page 🙈
 - [ ] full docker wrapper
 - [ ] better handling of API keys (they're not particularly secret)
 - [ ] make the endpoint more generic, to handle other use cases
+- [ ] deployment plan
 - [ ] why so slow?
 
 [_Docker + Symfony skeleton based off the work of Martin Pham here._](https://gitlab.com/martinpham/symfony-5-docker)
