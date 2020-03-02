@@ -1,0 +1,12 @@
+{% extends "base.html.twig" %}
+{% block body %}
+<div id="muddyMessage">{{muddy ?? "not muddy"}}</div>
+
+    <br />
+    <br />
+
+    {% if zip is defined %}
+    <div>Try another Zip!</div>
+    <br />
+    {% endif %}
+{% endblock %}
