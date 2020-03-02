@@ -23,7 +23,7 @@ docker-compose run php-fpm composer install
 ```
 
 ### Add API keys
-You'll need an API key for the [Dark Sky API](https://darksky.net/dev/docs) and the [Google geocoding API](https://developers.google.com/maps/documentation/geocoding/start). You can enter them at the bottom of the Symfony `.env` file like this:
+You'll need an API key for the [Dark Sky API](https://darksky.net/dev/docs) and the [Google geocoding API](https://developers.google.com/maps/documentation/geocoding/start). You can create the file `.env.local` and add them to the bottom of the file like this:
 
 ```
 GOOGLE_MAPS_API_KEY=<KEY_HERE>
@@ -52,3 +52,4 @@ docker-compose run php-fpm php bin/phpunit tests
 - [ ] why so slow?
 
 [_Docker + Symfony skeleton based off the work of Martin Pham here._](https://gitlab.com/martinpham/symfony-5-docker)
+
