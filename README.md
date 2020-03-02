@@ -1,6 +1,6 @@
 # MuddyBot
 
-A simple web page to determine if it will be muddy 3 days from now.
+A simple web page to determine if it will be muddy 3 days from now. Based on [the Symfony PHP framework](https://symfony.com).
 
 ## Get up & running
 
